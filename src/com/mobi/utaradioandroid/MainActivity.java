@@ -1,5 +1,6 @@
 package com.mobi.utaradioandroid;
 
+import java.io.IOException;
 import java.util.Locale;
 
 import android.app.Activity;
@@ -8,6 +9,7 @@ import android.app.FragmentManager;
 import android.app.SearchManager;
 import android.content.Intent;
 import android.content.res.Configuration;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.view.GravityCompat;
@@ -60,11 +62,13 @@ public class MainActivity extends Activity {
     private CharSequence mTitle;
     private String[] mPlanetTitles;
 
+    	
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        
         mTitle = mDrawerTitle = getTitle();
         mPlanetTitles = getResources().getStringArray(R.array.planets_array);
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -219,6 +223,7 @@ public class MainActivity extends Activity {
             if(planet.equals("Radio"))
             {
             	rootView = inflater.inflate(R.layout.radio, container, false);
+            	
             }  else if(planet.equals("Request Song"))
             {
             	rootView = inflater.inflate(R.layout.request_song, container, false);
