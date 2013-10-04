@@ -212,7 +212,7 @@ public class MainActivity extends Activity {
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                 Bundle savedInstanceState) {
-        	View rootView;
+        	View rootView=null;
             int i = getArguments().getInt(ARG_PLANET_NUMBER);
             String planet = getResources().getStringArray(R.array.planets_array)[i];
             
@@ -222,22 +222,22 @@ public class MainActivity extends Activity {
             }  else if(planet.equals("Request Song"))
             {
             	rootView = inflater.inflate(R.layout.request_song, container, false);
-            }else{
+            }else if(planet.equals("Current Staff"))
+            {
+            	rootView = inflater.inflate(R.layout.current_staff, container, false);
+            }else if(planet.equals("About Us"))
+            {
+            	rootView = inflater.inflate(R.layout.about_us, container, false);
+            }else if(planet.equals("Feedback"))
+            {
+            	rootView = inflater.inflate(R.layout.feedback, container, false);
+            }
+            /*else{
             	rootView = inflater.inflate(R.layout.fragment_planet, container, false);
             	int imageId = getResources().getIdentifier(planet.toLowerCase(Locale.getDefault()),
                         "drawable", getActivity().getPackageName());
             			((ImageView) rootView.findViewById(R.id.image)).setImageResource(imageId);
         
-            }
-            /*else if(planet.equals("Current Staff"))
-            {
-            	
-            }else if(planet.equals("About Us"))
-            {
-            	
-            }else if(planet.equals("Feedback"))
-            {
-            	       	
             }*/
             getActivity().setTitle(planet);
             
