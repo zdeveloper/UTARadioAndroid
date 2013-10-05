@@ -19,9 +19,11 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -69,6 +71,7 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
 
         
+        
         mTitle = mDrawerTitle = getTitle();
         mPlanetTitles = getResources().getStringArray(R.array.planets_array);
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -109,6 +112,9 @@ public class MainActivity extends Activity {
         if (savedInstanceState == null) {
             selectItem(0);
         }
+       
+        
+        
     }
 
     @Override
@@ -223,7 +229,8 @@ public class MainActivity extends Activity {
             if(planet.equals("Radio"))
             {
             	rootView = inflater.inflate(R.layout.radio, container, false);
-            	
+            	Button playerbutton = (Button) rootView.findViewById(R.id.play_button);
+            	RadioMediaPlayer radio = new RadioMediaPlayer(playerbutton);
             }  else if(planet.equals("Request Song"))
             {
             	rootView = inflater.inflate(R.layout.request_song, container, false);

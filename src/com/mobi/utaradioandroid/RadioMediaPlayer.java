@@ -9,33 +9,48 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 
 public class RadioMediaPlayer extends Activity {
-	private MediaPlayer player;
-	private Button playBtn;
-	
-	public RadioMediaPlayer(View v) {
+
+	public RadioMediaPlayer(Button playBtn) {
 		// TODO Auto-generated constructor stub
-		player = new MediaPlayer();	
-		playBtn = (Button) findViewById(R.id.play_button);
-		playBtn.setOnClickListener(new OnClickListener() {
+        //app code
+       // Button playBtn = (Button) findViewById(R.id.play_button);
+        final MediaPlayer player = new MediaPlayer();
+        try {
+			player.setDataSource("rtsp://webmedia-2.uta.edu:1935/uta_radio/live");
+		} catch (IllegalArgumentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SecurityException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IllegalStateException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+        try {
+			player.prepare();
+		} catch (IllegalStateException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+        
+        playBtn.setOnClickListener(new OnClickListener() {
 			
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				try {
-					player.setDataSource("webmedia-2.uta.edu:1935/uta_radio/live");
-				} catch (IllegalArgumentException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				} catch (SecurityException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				} catch (IllegalStateException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
+				if (player.isPlaying())
+				{
+					player.stop();
+				} else{
+					player.start();
+				} 
 			}
 		});
 	}
