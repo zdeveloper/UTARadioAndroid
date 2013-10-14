@@ -1,6 +1,5 @@
 package com.mobi.utaradioandroid;
 
-import java.io.IOException;
 
 import android.app.Activity;
 import android.media.MediaPlayer;
@@ -8,38 +7,11 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 
-public class RadioMediaPlayer extends Activity {
+public class RadioMediaPlayer {
 
-	public RadioMediaPlayer(Button playBtn) {
+	public RadioMediaPlayer(View v, final MediaPlayer player) {
 		// TODO Auto-generated constructor stub
-        //app code
-       // Button playBtn = (Button) findViewById(R.id.play_button);
-        final MediaPlayer player = new MediaPlayer();
-        try {
-			player.setDataSource("rtsp://webmedia-2.uta.edu:1935/uta_radio/live");
-		} catch (IllegalArgumentException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (SecurityException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IllegalStateException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-        try {
-			player.prepare();
-		} catch (IllegalStateException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-        
+		Button playBtn = (Button) v.findViewById(R.id.play_button);
         playBtn.setOnClickListener(new OnClickListener() {
 			
 			@Override
@@ -47,7 +19,7 @@ public class RadioMediaPlayer extends Activity {
 				// TODO Auto-generated method stub
 				if (player.isPlaying())
 				{
-					player.stop();
+					player.pause();
 				} else{
 					player.start();
 				} 
