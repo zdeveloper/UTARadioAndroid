@@ -15,7 +15,7 @@
             android:orientation="vertical" >
 
             <TextView
-                android:id="@+id/textView1"
+                android:id="@+id/tv_Song"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="UTA Radio is an alternative/indie rock college radio station base at The University of Texas at Arlington. The sstation is an online radio operation run primairly by students with the help of faculty and staff members from the Department of Communications. Its slogan is Online All The Time."
