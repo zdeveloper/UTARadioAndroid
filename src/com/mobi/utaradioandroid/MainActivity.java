@@ -1,17 +1,13 @@
 package com.mobi.utaradioandroid;
 
-import java.io.IOException;
-import java.util.ArrayList;
+
 
 import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
-import android.content.Intent;
 import android.content.res.Configuration;
-import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.os.Bundle;
-import android.os.StrictMode;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -23,7 +19,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.ListView;
 
 /**
@@ -255,16 +250,7 @@ public class MainActivity extends Activity {
 				rootView = inflater
 						.inflate(R.layout.feedback, container, false);
 			}
-			/*
-			 * else{ rootView = inflater.inflate(R.layout.fragment_planet,
-			 * container, false); int imageId =
-			 * getResources().getIdentifier(planet
-			 * .toLowerCase(Locale.getDefault()), "drawable",
-			 * getActivity().getPackageName()); ((ImageView)
-			 * rootView.findViewById(R.id.image)).setImageResource(imageId);
-			 * 
-			 * }
-			 */
+			
 			getActivity().setTitle(planet);
 
 			return rootView;

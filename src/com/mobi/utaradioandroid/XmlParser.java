@@ -9,7 +9,6 @@ import org.xml.sax.ContentHandler;
 import org.xml.sax.InputSource;
 import org.xml.sax.XMLReader;
 
-import android.os.AsyncTask;
 import android.util.Log;
 
 
@@ -24,7 +23,7 @@ public class XmlParser{
 		return this.information;
 	}
 
-	public String doInBackground(String  URL, ContentHandler XMLHandler) {
+	public void doInBackground(String  URL, ContentHandler XMLHandler) {
 		
 		try{
 			 
@@ -36,7 +35,7 @@ public class XmlParser{
 			 HandlingXMLStuff xmlHandler = (HandlingXMLStuff) XMLHandler;
 			 xr.setContentHandler(xmlHandler);
 			 xr.parse(new InputSource(website.openStream()));
-			 this.information = xmlHandler.getInfomation();
+			 //this.information = xmlHandler.getInfomation();
 			 
 		}
 		catch (Exception e)
@@ -44,7 +43,6 @@ public class XmlParser{
 			Log.d("USER", e.toString());
 		}
 		
-		return information;	
 	}
 	
 }

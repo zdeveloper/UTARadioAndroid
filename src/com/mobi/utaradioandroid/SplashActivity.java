@@ -47,7 +47,7 @@ public class SplashActivity extends Activity {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		//mPlayer.start();
+		
 
 		setContentView(R.layout.activity_splash);
 		// this.requestWindowFeature(Window.FEATURE_NO_TITLE);

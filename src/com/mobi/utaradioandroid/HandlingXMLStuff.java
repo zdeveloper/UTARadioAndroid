@@ -6,9 +6,10 @@ import org.xml.sax.helpers.DefaultHandler;
 
 public class HandlingXMLStuff extends DefaultHandler {
 	
-	private XMLDataCollected info = new XMLDataCollected();
-	boolean songName= false;
-	boolean artistName = false;
+	private String songNameString;
+	private String artistNameString;
+	private boolean songName= false;
+	private boolean artistName = false;
 	
 	@Override
 	public void startElement(String uri, String localName, String qName,
@@ -32,27 +33,22 @@ public class HandlingXMLStuff extends DefaultHandler {
 		if(songName){
 			
 			songName = false;
-			info.setSong( new String(ch, start, length) );
+			songNameString =  new String(ch, start, length) ;
 			
 		} else if(artistName){
 			
 			artistName = false;
-			info.setArtist(new String(ch, start, length));
+			artistNameString = new String(ch, start, length);
 			
 		}
 	}
 	
-
-
 	public String getSong() {
-		return info.getSong();
+		return this.songNameString;
 	}
 	
 	public String getArtist() {
-		return info.getArtist();
+		return this.artistNameString;
 	}
 
-	public String getInfomation() {
-		return info.dataToString();
-	}
 }
